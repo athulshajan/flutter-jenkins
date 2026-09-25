@@ -5,19 +5,19 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                bat '"C:\\Users\\HP\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe" -m pip install -r requirements.txt'
+                bat 'flutter pub get'
             }
         }
 
         stage('Test') {
             steps {
-                bat '"C:\\Users\\HP\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe" -m pytest'
+                bat 'flutter test'
             }
         }
 
         stage('Build') {
             steps {
-                bat '"C:\\Users\\HP\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe" --version'
+                bat 'flutter build apk --debug'
             }
         }
     }
